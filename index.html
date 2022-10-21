@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:4000/stylegan-v -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style>
+    .project-link {
+    border: 1px solid black;
+    padding: 7px 7px;
+    border-radius: 2px;
+}
+
+.project-links a {
+    margin-right: 20px;
+    color: black;
+}
+
+.project-links a:visited {
+    color: black;
+}
+
+.project-links a:hover {
+    background-color: var(--very-dark-color);
+    color: white;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.project-links a > i {
+    margin-bottom: -3px;
+}
+
+</style>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head><body><p style="display: none;">Just chekcing that no SEO is included.</p>
+    <!-- Adding the favicon --><link rel="shortcut icon" href="http://localhost:4000/assets/favicon.ico"><link rel="stylesheet" href="./index_files/main.css">
+
+
+
+
+
+
+    <link rel="stylesheet" href="./index_files/project-page.css">
+
+<div class="project-page page-content" aria-label="Content">
+    <!-- <div class="wrapper"> -->
+        <div class="content-block-wrapper">
+            <div class="content-block">
+<h1 class="project-page-title long-title">A Continuous Video Generator with the Price, Quality and Perks of StyleGAN2</h1>
+
+
+<h5 class="conference-name">Anonymous CVPR 2022 submission</h5>
+
+
+<ol class="authors-list"></ol><div class="logos"></div></div>
+        </div>
+        <div class="content-block-wrapper abstract">
+            <div class="content-block">
+                <div class="abstract">
+                    <h2 class="subtitle">Summary</h2><p>Videos show continuous events, yet most — if not all — video synthesis frameworks treat them discretely in time. In this work, we think of videos of what they should be — time-continuous signals, and extend the paradigm of neural representations to build a continuous-time video generator. For this, we first design continuous motion representations through the lens of positional embeddings. Then, we explore the question of training on very sparse videos and demonstrate that a good generator can be learned by using as few as 2 frames per clip. After that, we rethink the traditional image and video discriminators pair and propose to use a single hypernetwork-based one. This decreases the training cost and provides richer learning signal to the generator, making it possible to train directly on 1024x1024 videos for the first time. We build our model on top of StyleGAN2 and it is just 10% more expensive to train at the same resolution while achieving almost the same image quality. Moreover, our latent space features similar properties, enabling spatial manipulations that our method can propagate in time. We can generate arbitrarily long videos at arbitrary high frame rate, while prior work struggles to generate even 64 frames at a fixed rate. Our model achieves state-of-the-art results on four modern 256x256 video synthesis benchmarks and one 1024x1024 resolution one.</p></div>
+                <div class="project-links">
+
+
+
+    <a class="project-link" href="https://github.com/cvpr2022-stylegan-v/stylegan-v" target="_blank">
+        <i class="fab fa-fw fa-lg fa-github"></i>
+        Code
+    </a>
+    </div>
+
+            </div>
+        </div>
+
+        <div class="content-block-wrapper">
+<div class="content-block section">
+
+<h2 style="color: red;"><i>Note: please, use the latest version of Chrome/Chromium to watch the videos (alternatively, you can download a video and watch it offline). Some of the videos can be displayed incorrectly in other web browsers (e.g., Firefox).</i></h2>
+
+
+
+<h2 class="section-title"><b>Random videos</b> on FaceForensics 256x256</h2>
+<div class="section-text">
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/videos-long/ours_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+        <p class="caption">StyleGAN-V (ours)</p>
+
+    </div>
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-sg2_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-sg2_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN + StyleGAN2 backbone</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-hd_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN-HD</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/vgpt_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/vgpt_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+                <p class="caption">VideoGPT</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/digan_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/digan_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+                <p class="caption">DIGAN</p>
+
+            </div>
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours-lstm-1_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/ours-lstm-1_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+                <p class="caption">StyleGAN-V without our positional embeddings with continuous LSTM codes with δ<sup>z</sup> = 1 instead</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours-lstm-16_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/ours-lstm-16_ffs_256_unstable.mp4" style="max-width: px"/> -->
+
+                <p class="caption">StyleGAN-V without our positional embeddings with continuous LSTM codes with δ<sup>z</sup> = 16 instead</p>
+
+            </div>
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+
+<hr class="hr">
+
+
+<h2 class="section-title"><b>Random videos</b> on SkyTimelapse 256x256</h2>
+<div class="section-text">
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/videos-long/ours_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+        <p class="caption">StyleGAN-V (ours)</p>
+
+    </div>
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-sg2_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-sg2_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN + StyleGAN2 backbone</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-hd_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN-HD</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/vgpt_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/vgpt_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">VideoGPT</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/digan_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/digan_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">DIGAN</p>
+
+            </div>
+
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours-lstm-1_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/ours-lstm-1_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">StyleGAN-V without our positional embeddings with continuous LSTM codes with δ<sup>z</sup> = 1 instead</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours-lstm-16_sky_timelapse_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/ours-lstm-16_sky_timelapse_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">StyleGAN-V without our positional embeddings with continuous LSTM codes with δ<sup>z</sup> = 16 instead</p>
+
+            </div>
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+
+<hr class="hr">
+
+
+<h2 class="section-title"><b>Random videos</b> on RainbowJelly 256x256</h2>
+<div class="section-text">
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_rainbow_jelly_256.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/videos-long/ours_rainbow_jelly_256.mp4" style="max-width: px"/> -->
+
+        <p class="caption">StyleGAN-V (ours)</p>
+
+    </div>
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-sg2_rainbow_jelly_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-sg2_rainbow_jelly_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN + StyleGAN2 backbone</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_rainbow_jelly_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-hd_rainbow_jelly_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN-HD</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/vgpt_rainbow_jelly_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/vgpt_rainbow_jelly_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">VideoGPT</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/digan_rainbow_jelly_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/digan_rainbow_jelly_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">DIGAN</p>
+
+            </div>
+
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+
+<hr class="hr">
+
+
+<h2 class="section-title"><b>Random videos</b> on UCF101 256x256</h2>
+<div class="section-text">
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_ucf101_256.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/videos-long/ours_ucf101_256.mp4" style="max-width: px"/> -->
+
+        <p class="caption">StyleGAN-V (ours)</p>
+
+    </div>
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_ucf101_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/mocogan-hd_ucf101_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">MoCoGAN-HD</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/vgpt_ucf101_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/vgpt_ucf101_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">VideoGPT</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/digan_ucf101_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-long/digan_ucf101_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">DIGAN</p>
+
+            </div>
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+
+<hr class="hr">
+
+
+<h2 class="section-title"><b>Random videos</b> on MEAD 1024x1024 (open in full screen for a better view)</h2>
+<div class="section-text">
+    <div class="img-container">
+
+        <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_mead_front_1024/00.mp4" type="video/mp4" controls="" loop=""></video>
+
+        <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_mead_front_1024/01.mp4" type="video/mp4" controls="" loop=""></video>
+
+        <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_mead_front_1024/02.mp4" type="video/mp4" controls="" loop=""></video>
+
+        <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_mead_front_1024/03.mp4" type="video/mp4" controls="" loop=""></video>
+
+
+        <p class="caption">StyleGAN-V (ours)</p>
+
+    </div>
+
+            <div class="img-container">
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_mead_front_1024/00.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_mead_front_1024/01.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_mead_front_1024/02.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_mead_front_1024/03.mp4" type="video/mp4" controls="" loop=""></video>
+
+
+                <p class="caption">MoCoGAN-HD</p>
+
+            </div>
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+
+<hr class="hr">
+
+
+<h2 class="section-title">Projecting off-the-shelf images into our model.</h2>
+<div class="section-text">
+            <p><b>Note:</b> FaceForensics is much more limited dataset than FFHQ (only ~700 identites!), that's why our projection results are inferior to those of StyleGAN2</p>
+
+
+            <div class="img-container">
+
+                <video width="id=&quot;teaser-video&quot;" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/adele-2_projected.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="id=&quot;teaser-video&quot;" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/bengio_projected.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="id=&quot;teaser-video&quot;" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/lawrence_projected.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="id=&quot;teaser-video&quot;" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/brad-pitt_projected.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="id=&quot;teaser-video&quot;" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/hopkins_projected.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="id=&quot;teaser-video&quot;" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/rihanna_projected.mp4" type="video/mp4" controls="" loop=""></video>
+
+
+            </div>
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+
+<hr class="hr">
+
+
+<h2 class="section-title">Video editing using CLIP</h2>
+<div class="section-text">
+            <div class="img-container">
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/adele_old.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/bengio_makeup.mp4" type="video/mp4" controls="" loop=""></video>
+
+                <video width="256" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/bengio_tshirt.mp4" type="video/mp4" controls="" loop=""></video>
+
+
+                <p class="caption">Text prompts used (left-to-right, top-to-bottom): <b>«An old person»</b>, <b>«A person with makeup»</b>, <b>«A person with a purple t-shirt»</b></p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="512" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/beard_gen_w.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-edit/beard_gen_w.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Left: original video. Right: edited with <b>«A person with a beard»</b></p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="512" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/blue_eyes_gen_w.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-edit/blue_eyes_gen_w.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Left: original video. Right: edited with <b>«A person with blue eyes»</b></p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="512" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/old_gen_w.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-edit/old_gen_w.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Left: original video. Right: edited with <b>«An old person»</b></p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="512" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/bright_sun_gen_w.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-edit/bright_sun_gen_w.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Left: original video. Right: edited with <b>«Bright sun»</b></p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="512" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/cloudy_day_gen_w.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-edit/cloudy_day_gen_w.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Left: original video. Right: edited with <b>«Very cloudy day»</b></p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="512" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-edit/aurora_gen_w.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/videos-edit/aurora_gen_w.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Left: original video. Right: edited with <b>«Aurora»</b></p>
+
+            </div>
+
+            </div>
+</div>
+</div><div class="content-block-wrapper">
+<div class="content-block section">
+
+<div class="content-block-wrapper">
+    <div class="content-block section">
+
+
+    <hr class="hr">
+
+
+    <h2 class="section-title">Increasing the frame rate by x5 on <b>random samples</b> on FaceForensics 256x256</h2>
+    <div class="section-text">
+                <div class="img-container">
+                    <div style="text-align: center;">
+                        <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/ours_ffs_256_unstable_fps_x5.mp4" type="video/mp4" controls="" loop=""></video>
+                    </div>
+                    <!-- <img src="/videos/ours_ffs_256_unstable_fps_x5.mp4" style="max-width: px"/> -->
+
+                    <p class="caption">Increasing the frame rate by x5</p>
+
+            </div>
+
+            </div>
+</div>
+</div>
+
+<hr class="hr">
+
+
+<h2 class="section-title">Real videos</h2>
+<div class="section-text">
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1024" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/rainbow_jelly_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/rainbow_jelly_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Real videos for RainbowJelly 256x256</p>
+
+            </div>
+
+
+            <div class="img-container">
+                <div style="text-align: center;">
+                    <video width="1024" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/mead_front_256.mp4" type="video/mp4" controls="" loop=""></video>
+                </div>
+                <!-- <img src="videos/mead_front_256.mp4" style="max-width: px"/> -->
+
+                <p class="caption">Real videos for MEAD 256x256. Note that heads have static positions</p>
+
+            </div>
+
+            </div>
+</div>
+</div>
+
+
+    <!-- </div> -->
+</div><footer class="site-footer h-card">
+<div class="wrapper">
+    <p class="footer-text">
+    Built with <a href="https://jekyllrb.com/">Jekyll</a> based on <a href="https://github.com/jekyll/minima">Minima</a>.
+    <!-- I also used <a href="https://fontawesome.com">Font Awesome</a>, <a href="http://flaticon.com">flaticons</a> and <a href="https://jpswalsh.github">academicons</a> here and there. -->
+    </p>
+</div>
+</footer>
+
+
+
+  <!-- Put this after the content so the page is displayed faster? -->
+  <script src="./index_files/polyfill.min.js"></script>
+  <script id="MathJax-script" async="" src="./index_files/tex-mml-chtml.js"></script>
+
+</body></html>
