@@ -438,10 +438,10 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
     <!-- <div class="wrapper"> -->
         <div class="content-block-wrapper">
             <div class="content-block">
-<h1 class="project-page-title long-title">A Continuous Video Generator with the Price, Quality and Perks of StyleGAN2</h1>
+<h1 class="project-page-title long-title">Motion-GAN</h1>
 
 
-<h5 class="conference-name">Anonymous CVPR 2022 submission</h5>
+<h5 class="conference-name">Anonymous CVPR 2023 submission</h5>
 
 
 <ol class="authors-list"></ol><div class="logos"></div></div>
@@ -449,12 +449,13 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
         <div class="content-block-wrapper abstract">
             <div class="content-block">
                 <div class="abstract">
-                    <h2 class="subtitle">Summary</h2><p>Videos show continuous events, yet most — if not all — video synthesis frameworks treat them discretely in time. In this work, we think of videos of what they should be — time-continuous signals, and extend the paradigm of neural representations to build a continuous-time video generator. For this, we first design continuous motion representations through the lens of positional embeddings. Then, we explore the question of training on very sparse videos and demonstrate that a good generator can be learned by using as few as 2 frames per clip. After that, we rethink the traditional image and video discriminators pair and propose to use a single hypernetwork-based one. This decreases the training cost and provides richer learning signal to the generator, making it possible to train directly on 1024x1024 videos for the first time. We build our model on top of StyleGAN2 and it is just 10% more expensive to train at the same resolution while achieving almost the same image quality. Moreover, our latent space features similar properties, enabling spatial manipulations that our method can propagate in time. We can generate arbitrarily long videos at arbitrary high frame rate, while prior work struggles to generate even 64 frames at a fixed rate. Our model achieves state-of-the-art results on four modern 256x256 video synthesis benchmarks and one 1024x1024 resolution one.</p></div>
+                    <h2 class="subtitle">Summary</h2><p>Video generation remains a challenging task due to spatial-temporal complexity as well as motion variety and consistency. Previous works attempt to generate videos in arbitrary length either in an autoregressive manner or regarding time as a continuous signal, all suffer from generating motion without temporally coherence, such as unrealistic motions and repetitive scene after several time steps. In this work, we think 
+single style vector of the style-based generator is insufficient for spatial-temporal case and thus assist it with a motion style to facilitate motion synthesis with motion-attention modulation mechanism. In addition, we prove the necessity for motion-content decomposition especially for datasets with discrepant frequency and conduct weight modulation separately for motion and content features. Experimental results show our model achieves state-of-the-art performance on four unconditional $256^2$ video synthesis benchmarks trained on only 3 frames per clip. Furthermore, we enable our approach on text-conditional video generation. Our code will be made available in public.</p></div>
                 <div class="project-links">
 
 
 
-    <a class="project-link" href="https://github.com/cvpr2022-stylegan-v/stylegan-v" target="_blank">
+    <a class="project-link" href="https://github.com/cvpr2023-motiongan" target="_blank">
         <i class="fab fa-fw fa-lg fa-github"></i>
         Code
     </a>
@@ -466,86 +467,61 @@ mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
         <div class="content-block-wrapper">
 <div class="content-block section">
 
-<h2 style="color: red;"><i>Note: please, use the latest version of Chrome/Chromium to watch the videos (alternatively, you can download a video and watch it offline). Some of the videos can be displayed incorrectly in other web browsers (e.g., Firefox).</i></h2>
 
-
-
-<h2 class="section-title"><b>Random videos</b> on FaceForensics 256x256</h2>
+<h2 class="section-title">Generated videos on CelebV-HQ 256x256</h2>
 <div class="section-text">
     <div class="img-container">
         <div style="text-align: center;">
             <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
         </div>
-        <!-- <img src="videos/videos-long/ours_ffs_256_unstable.mp4" style="max-width: px"/> -->
+        <!-- <img src="videos/celeb-v/motion_gan.mp4" style="max-width: px"/> -->
 
-        <p class="caption">StyleGAN-V (ours)</p>
+        <p class="caption">Motion-gan (ours)</p>
 
     </div>
 
-            <div class="img-container">
-                <div style="text-align: center;">
-                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-sg2_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
-                </div>
-                <!-- <img src="videos/videos-long/mocogan-sg2_ffs_256_unstable.mp4" style="max-width: px"/> -->
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-sg2_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/celeb-v/demo_mocoganhd.mp4" style="max-width: px"/> -->
 
-                <p class="caption">MoCoGAN + StyleGAN2 backbone</p>
+        <p class="caption">MoCoGAN-HD</p>
 
-            </div>
-
-
-            <div class="img-container">
-                <div style="text-align: center;">
-                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
-                </div>
-                <!-- <img src="videos/videos-long/mocogan-hd_ffs_256_unstable.mp4" style="max-width: px"/> -->
-
-                <p class="caption">MoCoGAN-HD</p>
-
-            </div>
+    </div>
 
 
-            <div class="img-container">
-                <div style="text-align: center;">
-                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/vgpt_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
-                </div>
-                <!-- <img src="videos/videos-long/vgpt_ffs_256_unstable.mp4" style="max-width: px"/> -->
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/mocogan-hd_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/celeb-v/demo_videogpt.mp4" style="max-width: px"/> -->
 
-                <p class="caption">VideoGPT</p>
+        <p class="caption">VideoGPT</p>
 
-            </div>
-
-
-            <div class="img-container">
-                <div style="text-align: center;">
-                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/digan_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
-                </div>
-                <!-- <img src="videos/videos-long/digan_ffs_256_unstable.mp4" style="max-width: px"/> -->
-
-                <p class="caption">DIGAN</p>
-
-            </div>
-
-            <div class="img-container">
-                <div style="text-align: center;">
-                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours-lstm-1_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
-                </div>
-                <!-- <img src="videos/videos-long/ours-lstm-1_ffs_256_unstable.mp4" style="max-width: px"/> -->
-
-                <p class="caption">StyleGAN-V without our positional embeddings with continuous LSTM codes with δ<sup>z</sup> = 1 instead</p>
-
-            </div>
+    </div>
 
 
-            <div class="img-container">
-                <div style="text-align: center;">
-                    <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/ours-lstm-16_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
-                </div>
-                <!-- <img src="videos/videos-long/ours-lstm-16_ffs_256_unstable.mp4" style="max-width: px"/> -->
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/vgpt_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/celeb-v/demo_digan.mp4" style="max-width: px"/> -->
 
-                <p class="caption">StyleGAN-V without our positional embeddings with continuous LSTM codes with δ<sup>z</sup> = 16 instead</p>
+        <p class="caption">DIGAN</p>
 
-            </div>
+    </div>
 
+
+    <div class="img-container">
+        <div style="text-align: center;">
+            <video width="1200" id="teaser-video" style="border: 1px solid black; border-radius: 1px;" preload="auto" src="videos/videos-long/digan_ffs_256_unstable.mp4" type="video/mp4" controls="" loop=""></video>
+        </div>
+        <!-- <img src="videos/celeb-v/demo_styleganv.mp4" style="max-width: px"/> -->
+
+        <p class="caption">StyleGAN-V</p>
+
+    </div>
             </div>
 </div>
 </div><div class="content-block-wrapper">
